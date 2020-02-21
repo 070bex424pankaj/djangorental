@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container" style="width:50%;">
+        <br><h2>Create a New Property</h2><br>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="hidden" name="reg_agent" value="{{ user.id }}">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>   
+    </div>
+{% endblock %}
+
